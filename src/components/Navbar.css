@@ -16,6 +16,18 @@ body {
   background-color: #f5f6fa;
 }
 
+.logo {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.logo p {
+  color: black;
+  font-size: 30px;
+  font-weight: 700;
+}
+
 .outer {
   display: flex;
   justify-content: space-between;
@@ -39,20 +51,21 @@ body {
   color: rgb(51, 230, 230);
 }
 
-.outer .inner-2 {
-  width: 40vw;
-}
-
 .outer .inner-1 a,
 .outer .inner-2 a {
   text-decoration: none;
 }
 
 .outer .inner-2 a {
-  color: rgb(18, 18, 18);
-  opacity: 0.5;
+  color: blue;
   font-size: 18px;
   letter-spacing: 1.9px;
+}
+
+.vertical-line {
+  width: 1px;
+  height: 20px;
+  background: black;
 }
 
 .outer a h1 {
@@ -78,5 +91,5 @@ body {
 }
 
 .visited {
-  opacity: 1 !important;
+  text-decoration: underline !important;
 }
