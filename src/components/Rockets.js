@@ -1,17 +1,26 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchAllRockets } from '../redux/rockets/rockets';
+import RocketCard from './rocketCard';
 
-const Categories = () => {
+const Rockets = () => {
+  const infoUI = [];
   const dispatch = useDispatch();
   useEffect(() => () => dispatch(fetchAllRockets()()), [dispatch]);
-  const infoState = useSelector((state) => state.missionInfo);
-  console.log(infoState);
+  const infoState = useSelector((state) => state.rocketInfo);
+  for (let i = 0; i < infoState.length; i += 1) {
+    infoUI.push(<RocketCard
+      rocketId={infoState[i].id}
+      rocketName={infoState[i].rocket_name}
+      rocketDescription={infoState[i].description}
+      rocketImage={infoState[i].flickr_images[0]}
+      key={`rocket-${infoState[i].id}`}
+    />);
+  }
   return (
     <>
-      <button type="submit" onClick={() => dispatch(fetchAllRockets())}>Check status</button>
-      <h2>hi</h2>
+      {infoUI}
     </>
   );
 };
-export default Categories;
+export default Rockets;

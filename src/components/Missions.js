@@ -4,7 +4,7 @@ import { fetchAllMissions } from '../redux/missions/missions';
 import TableRow from './missionTableRow';
 import './missions.css';
 
-const Categories = () => {
+const Missions = () => {
   const infoUI = [];
   const dispatch = useDispatch();
   useEffect(() => () => dispatch(fetchAllMissions()()), [dispatch]);
@@ -32,4 +32,4 @@ const Categories = () => {
     </table>
   );
 };
-export default Categories;
+export default Missions;
