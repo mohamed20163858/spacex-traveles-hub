@@ -1,35 +1,20 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import spacexTravelesHubAPIMethods from '../../spacexAPI/methods';
 
-const ADD = 'spacex-traveles-hub/src/redux/rockets/ADD';
-const REMOVE = 'spacex-traveles-hub/src/redux/rockets/REMOVE';
+const RESERVE = 'spacex-traveles-hub/src/redux/rockets/RESERVE';
+const CANCEL = 'spacex-traveles-hub/src/redux/rockets/CANCEL';
 const GET = 'spacex-traveles-hub/src/redux/rockets/GET';
 
-export const addRocketInUI = (info) => ({
-  type: ADD,
-  payload: info,
+export const reserveRocket = (index) => ({
+  type: RESERVE,
+  payload: +index,
 
 });
-export const removeRocketInUI = (index) => ({
-  type: REMOVE,
+export const cancelRocket = (index) => ({
+  type: CANCEL,
   payload: +index,
 });
-// export const addBook = (info) => createAsyncThunk(
-//   ADD,
-//   async () => {
-//     const response = await spacexTravelesHubAPIMethods.sendBook(info);
-//     const data = await response.data;
-//     return data;
-//   },
-// );
-// export const removeBook = (index) => createAsyncThunk(
-//   REMOVE,
-//   async () => {
-//     const response = await spacexTravelesHubAPIMethods.deleteBook(index);
-//     const data = await response.data;
-//     return data;
-//   },
-// );
+
 export const fetchAllRockets = () => createAsyncThunk(
   GET,
   async () => {
@@ -46,10 +31,18 @@ export const fetchAllRockets = () => createAsyncThunk(
 );
 const rocketsReducer = (state = [], action) => {
   switch (action.type) {
-    case ADD:
-      return [...state, action.payload];
-    case REMOVE:
-      return [...state.slice(0, action.payload), ...state.slice(action.payload + 1)];
+    case RESERVE:
+      return [
+        ...state.slice(0, action.payload - 1),
+        { ...state[action.payload - 1], reserved: true },
+        ...state.slice(action.payload),
+      ];
+    case CANCEL:
+      return [
+        ...state.slice(0, action.payload - 1),
+        { ...state[action.payload - 1], reserved: false },
+        ...state.slice(action.payload),
+      ];
     case `${GET}/fulfilled`:
       return [...action.payload];
     default:
