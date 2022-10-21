@@ -14,6 +14,7 @@ const Rockets = () => {
       rocketName={infoState[i].rocket_name}
       rocketDescription={infoState[i].description}
       rocketImage={infoState[i].flickr_images[0]}
+      reserved={Boolean(infoState[i].reserved)}
       key={`rocket-${infoState[i].id}`}
     />);
   }
