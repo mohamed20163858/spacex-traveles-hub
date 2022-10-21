@@ -14,6 +14,8 @@ const Missions = () => {
       missionId={infoState[i].mission_id}
       missionName={infoState[i].mission_name}
       description={infoState[i].description}
+      reserved={Boolean(infoState[i].reserved)}
+      elementIndex={i}
       key={infoState[i].mission_id}
     />);
   }

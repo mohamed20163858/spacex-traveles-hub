@@ -1,35 +1,20 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import spacexTravelesHubAPIMethods from '../../spacexAPI/methods';
 
-const ADD = 'spacex-traveles-hub/src/redux/missions/ADD';
-const REMOVE = 'spacex-traveles-hub/src/redux/missions/REMOVE';
+const JOIN = 'spacex-traveles-hub/src/redux/missions/JOIN';
 const GET = 'spacex-traveles-hub/src/redux/missions/GET';
+const LEAVE = 'spacex-traveles-hub/src/redux/missions/LEAVE';
 
-export const addMissionInUI = (info) => ({
-  type: ADD,
-  payload: info,
+export const joinMission = (index) => ({
+  type: JOIN,
+  payload: +index,
 
 });
-export const removeMissionInUI = (index) => ({
-  type: REMOVE,
+export const leaveMission = (index) => ({
+  type: LEAVE,
   payload: +index,
 });
-// export const addBook = (info) => createAsyncThunk(
-//   ADD,
-//   async () => {
-//     const response = await spacexTravelesHubAPIMethods.sendBook(info);
-//     const data = await response.data;
-//     return data;
-//   },
-// );
-// export const removeBook = (index) => createAsyncThunk(
-//   REMOVE,
-//   async () => {
-//     const response = await spacexTravelesHubAPIMethods.deleteBook(index);
-//     const data = await response.data;
-//     return data;
-//   },
-// );
+
 export const fetchAllMissions = () => createAsyncThunk(
   GET,
   async () => {
@@ -45,10 +30,18 @@ export const fetchAllMissions = () => createAsyncThunk(
 );
 const missionsReducer = (state = [], action) => {
   switch (action.type) {
-    case ADD:
-      return [...state, action.payload];
-    case REMOVE:
-      return [...state.slice(0, action.payload), ...state.slice(action.payload + 1)];
+    case JOIN:
+      return [
+        ...state.slice(0, action.payload),
+        { ...state[action.payload], reserved: true },
+        ...state.slice(action.payload + 1),
+      ];
+    case LEAVE:
+      return [
+        ...state.slice(0, action.payload),
+        { ...state[action.payload], reserved: false },
+        ...state.slice(action.payload + 1),
+      ];
     case `${GET}/fulfilled`:
       return [...action.payload];
     default:
