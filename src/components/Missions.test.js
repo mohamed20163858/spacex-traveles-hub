@@ -4,22 +4,20 @@ import { render, screen } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import store from '../redux/configureStore';
 import '@testing-library/jest-dom';
-import RocketCard from './rocketCard';
+import MissionTableRow from './missionTableRow';
 
-function TestRockets() {
-  const id = 1;
-  const rocketname = 'Falcon 1';
+function TestMissions() {
+  const id = 'EE86F74';
+  const mssionname = 'Commercial Resupply Services';
   const description = 'discription';
   const reserved = true;
-  const img = 'https://imgur.com/DaCfMsj.jpg';
-  const key = 'rocket-1';
+  const key = 'mission-4';
   return (
     <Provider store={store}>
-      <RocketCard
-        rocketId={id}
-        rocketName={rocketname}
-        rocketDescription={description}
-        rocketImage={img}
+      <MissionTableRow
+        missionId={id}
+        missionName={mssionname}
+        description={description}
         reserved={reserved}
         key={key}
       />
@@ -28,18 +26,18 @@ function TestRockets() {
 }
 it('renders correctly', () => {
   const tree = renderer
-    .create(<TestRockets />)
+    .create(<TestMissions />)
     .toJSON();
   expect(tree).toMatchSnapshot();
 });
-test('simulate checking a reserved rocket ', () => {
+test('simulate checking a joined mission ', () => {
   // ARRANGE
-  render(<TestRockets />);
+  render(<TestMissions />);
 
   // ACT making reserve = true
 
   // Arrange
-  const result = screen.getByTestId('rocket-reserved');
+  const result = screen.getByText('Active Member');
   // ASSERT
   expect(result).toBeInTheDocument();
 });
