@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/mohamed20163858/spacex-traveles-hub/static/css/main.57b0a892.css",
+    "main.js": "/mohamed20163858/spacex-traveles-hub/static/js/main.3bbd41d1.js",
+    "static/media/logo.png": "/mohamed20163858/spacex-traveles-hub/static/media/logo.3f6fb2742f28651730c0.png",
+    "index.html": "/mohamed20163858/spacex-traveles-hub/index.html",
+    "main.57b0a892.css.map": "/mohamed20163858/spacex-traveles-hub/static/css/main.57b0a892.css.map",
+    "main.3bbd41d1.js.map": "/mohamed20163858/spacex-traveles-hub/static/js/main.3bbd41d1.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.57b0a892.css",
+    "static/js/main.3bbd41d1.js"
+  ]
+}
