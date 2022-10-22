@@ -1,13 +1,9 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
-import { fetchAllMissions } from '../redux/missions/missions';
+import { useSelector } from 'react-redux';
 import TableRow from './missionTableRow';
 import './missions.css';
 
 const Missions = () => {
   const infoUI = [];
-  const dispatch = useDispatch();
-  useEffect(() => () => dispatch(fetchAllMissions()()), [dispatch]);
   const infoState = useSelector((state) => state.missionInfo);
   for (let i = 0; i < infoState.length; i += 1) {
     infoUI.push(<TableRow

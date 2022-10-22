@@ -31,10 +31,10 @@ const RocketCard = (props) => {
       <div className="card-info">
         <h2>{rocketName}</h2>
         <p>
-          <span>{reserved ? 'Reserved' : ''}</span>
+          <span className={reserved ? 'badge' : ''}>{reserved ? 'Reserved' : ''}</span>
           {rocketDescription}
         </p>
-        <button type="submit" onClick={reserveAction} className="unreserved">{reserved ? 'Cancel Reservation' : 'Reserve Rocket'}</button>
+        <button type="submit" onClick={reserveAction} className={reserved ? 'reserved' : 'unreserved'}>{reserved ? 'Cancel Reservation' : 'Reserve Rocket'}</button>
       </div>
     </div>
   );

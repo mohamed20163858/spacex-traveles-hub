@@ -1,12 +1,18 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-// import Categories from './components/Categories';
-// import Books from './components/Books';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { fetchAllMissions } from './redux/missions/missions';
+import { fetchAllRockets } from './redux/rockets/rockets';
 import Navbar from './components/Navbar';
 import MyProfile from './components/My profile';
 import Rockets from './components/Rockets';
 import Missions from './components/Missions';
 
 function App() {
+  const dispatch = useDispatch();
+  useEffect(() => () => dispatch(fetchAllMissions()()), [dispatch]);
+  useEffect(() => () => dispatch(fetchAllRockets()()), [dispatch]);
+
   return (
     <Router>
       <Navbar />

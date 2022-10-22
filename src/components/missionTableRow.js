@@ -28,8 +28,8 @@ const TableRow = (props) => {
     <tr id={missionId}>
       <td>{missionName}</td>
       <td><p>{description}</p></td>
-      <td><p className="badge-1">{reserved ? 'Active Member' : 'Not A Member'}</p></td>
-      <td><button type="submit" className="unreserved" onClick={joinAction}>{reserved ? 'Leave Mission' : 'Join Mission'}</button></td>
+      <td><p className={reserved ? 'badge-2' : 'badge-1'}>{reserved ? 'Active Member' : 'Not A Member'}</p></td>
+      <td><button type="submit" className={reserved ? 'reserved' : 'unreserved'} onClick={joinAction}>{reserved ? 'Leave Mission' : 'Join Mission'}</button></td>
     </tr>
   );
 };

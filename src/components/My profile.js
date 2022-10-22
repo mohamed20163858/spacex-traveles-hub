@@ -1,14 +1,19 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { checkCategoriesStatus } from '../redux/categories/categories';
+import { useSelector } from 'react-redux';
 
-const Categories = () => {
-  const dispatch = useDispatch();
-  const state = useSelector((state) => state.categoryInfo);
+const MyProfile = () => {
+  const missionsInfo = useSelector((state) => state.missionInfo);
+  // const rocketsInfo = useSelector((state) => state.rocketInfo);
+  console.log(missionsInfo);
+
   return (
-    <>
-      <button type="submit" onClick={() => dispatch(checkCategoriesStatus())}>Check status</button>
-      <h2>{state}</h2>
-    </>
+    <div className="profile-body">
+      <div className="my-missions">
+        <h2>My Missions</h2>
+      </div>
+      <div className="my-rockets">
+        <h2>My Rockets</h2>
+      </div>
+    </div>
   );
 };
-export default Categories;
+export default MyProfile;
