@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import spacexTravelesHubAPIMethods from '../../spacexAPI/methods.mjs';
+import spacexTravelesHubAPIMethods from '../../spacexAPI/methods';
 
 const RESERVE = 'spacex-traveles-hub/src/redux/rockets/RESERVE';
 const CANCEL = 'spacex-traveles-hub/src/redux/rockets/CANCEL';
@@ -19,7 +19,7 @@ export const fetchAllRockets = () => createAsyncThunk(
   GET,
   async () => {
     const response = await spacexTravelesHubAPIMethods.fetchRockets();
-    const data = await response.data;
+    const data = await response.json();
     const rockets = Object.keys(data).map((key) => ({
       id: data[key].id,
       rocket_name: data[key].rocket_name,

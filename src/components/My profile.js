@@ -21,7 +21,7 @@ const MyProfile = () => {
   }
 
   return (
-    <div className="profile-body">
+    <div className="profile-body" data-testid="momo-id">
       <div className="my-missions">
         <h2>My Missions</h2>
         <table className="profile-table">

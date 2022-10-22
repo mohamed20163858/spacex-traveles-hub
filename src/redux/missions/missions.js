@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import spacexTravelesHubAPIMethods from '../../spacexAPI/methods.mjs';
+import spacexTravelesHubAPIMethods from '../../spacexAPI/methods';
 
 const JOIN = 'spacex-traveles-hub/src/redux/missions/JOIN';
 const GET = 'spacex-traveles-hub/src/redux/missions/GET';
@@ -19,7 +19,7 @@ export const fetchAllMissions = () => createAsyncThunk(
   GET,
   async () => {
     const response = await spacexTravelesHubAPIMethods.fetchMisions();
-    const data = await response.data;
+    const data = await response.json();
     const missions = Object.keys(data).map((key) => ({
       mission_id: data[key].mission_id,
       mission_name: data[key].mission_name,
