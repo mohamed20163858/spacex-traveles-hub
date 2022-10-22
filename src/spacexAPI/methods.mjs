@@ -1,5 +1,5 @@
-import httpRocket from './rocket-api-connector';
-import httpMissions from './missions-api-connector';
+import httpRocket from './rocket-api-connector.mjs';
+import httpMissions from './missions-api-connector.mjs';
 
 const fetchRockets = () => httpRocket.get('');
 const fetchMisions = () => httpMissions.get('');

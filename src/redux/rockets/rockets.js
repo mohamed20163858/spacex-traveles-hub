@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import spacexTravelesHubAPIMethods from '../../spacexAPI/methods';
+import spacexTravelesHubAPIMethods from '../../spacexAPI/methods.mjs';
 
 const RESERVE = 'spacex-traveles-hub/src/redux/rockets/RESERVE';
 const CANCEL = 'spacex-traveles-hub/src/redux/rockets/CANCEL';
