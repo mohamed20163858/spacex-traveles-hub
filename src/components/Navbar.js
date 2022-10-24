@@ -23,7 +23,7 @@ const Navbar = () => (
     </div>
     <div className="inner-2">
       <ul>
-        <li><NavLink to="/rockets" onClick={visitPageAction}>Rockets</NavLink></li>
+        <li><NavLink to="/" onClick={visitPageAction}>Rockets</NavLink></li>
         <li><NavLink to="/missions" onClick={visitPageAction}>Missions</NavLink></li>
         <div className="vertical-line" />
         <li><NavLink to="/my-profile" onClick={visitPageAction}>My Profile</NavLink></li>
