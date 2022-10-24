@@ -17,9 +17,10 @@ function App() {
     <Router>
       <Navbar />
       <Routes>
-        <Route path="/rockets" element={<Rockets />} />
-        <Route path="/missions" element={<Missions />} />
-        <Route path="/my-profile" element={<MyProfile />} />
+        <Route path="/spacex-traveles-hub" element={<Rockets />} />
+        <Route path="/spacex-traveles-hub/rockets" element={<Rockets />} />
+        <Route path="/spacex-traveles-hub/missions" element={<Missions />} />
+        <Route path="/spacex-traveles-hub/my-profile" element={<MyProfile />} />
       </Routes>
     </Router>
   );

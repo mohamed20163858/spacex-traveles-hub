@@ -16,17 +16,17 @@ const visitPageAction = (e) => {
 const Navbar = () => (
   <div className="outer">
     <div className="inner-1">
-      <NavLink to="/my-profile" className="logo">
+      <NavLink to="/spacex-traveles-hub" className="logo">
         <img src={Logo} alt="logo" width="40" height="40" />
         <p>Space Travelers&apos;Hub</p>
       </NavLink>
     </div>
     <div className="inner-2">
       <ul>
-        <li><NavLink to="/rockets" onClick={visitPageAction}>Rockets</NavLink></li>
-        <li><NavLink to="/missions" onClick={visitPageAction}>Missions</NavLink></li>
+        <li><NavLink to="/spacex-traveles-hub/rockets" onClick={visitPageAction}>Rockets</NavLink></li>
+        <li><NavLink to="/spacex-traveles-hub/missions" onClick={visitPageAction}>Missions</NavLink></li>
         <div className="vertical-line" />
-        <li><NavLink to="/my-profile" onClick={visitPageAction}>My Profile</NavLink></li>
+        <li><NavLink to="/spacex-traveles-hub/my-profile" onClick={visitPageAction}>My Profile</NavLink></li>
       </ul>
     </div>
   </div>
