@@ -26,7 +26,6 @@ export const fetchAllRockets = () => createAsyncThunk(
       description: data[key].description,
       flickr_images: data[key].flickr_images,
     }));
-    console.log('fullfilled');
     return rockets;
   },
 );
