@@ -10,8 +10,8 @@ import Missions from './components/Missions';
 
 function App() {
   const dispatch = useDispatch();
-  useEffect(() => () => dispatch(fetchAllMissions()()), [dispatch]);
-  useEffect(() => () => dispatch(fetchAllRockets()()), [dispatch]);
+  useEffect(() => () => dispatch(fetchAllMissions()));
+  useEffect(() => () => dispatch(fetchAllRockets()));
 
   return (
     <Router>

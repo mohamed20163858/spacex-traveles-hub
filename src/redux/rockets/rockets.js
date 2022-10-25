@@ -15,7 +15,7 @@ export const cancelRocket = (index) => ({
   payload: +index,
 });
 
-export const fetchAllRockets = () => createAsyncThunk(
+export const fetchAllRockets = createAsyncThunk(
   GET,
   async () => {
     const response = await spacexTravelesHubAPIMethods.fetchRockets();

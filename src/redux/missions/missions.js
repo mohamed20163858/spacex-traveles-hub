@@ -15,7 +15,7 @@ export const leaveMission = (index) => ({
   payload: +index,
 });
 
-export const fetchAllMissions = () => createAsyncThunk(
+export const fetchAllMissions = createAsyncThunk(
   GET,
   async () => {
     const response = await spacexTravelesHubAPIMethods.fetchMisions();
