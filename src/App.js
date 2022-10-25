@@ -8,10 +8,12 @@ import MyProfile from './components/My profile';
 import Rockets from './components/Rockets';
 import Missions from './components/Missions';
 
-function App() {
+const App = () => {
   const dispatch = useDispatch();
-  useEffect(() => () => dispatch(fetchAllMissions()));
-  useEffect(() => () => dispatch(fetchAllRockets()));
+  useEffect(() => {
+    dispatch(fetchAllMissions());
+    dispatch(fetchAllRockets());
+  });
 
   return (
     <Router>
@@ -23,6 +25,6 @@ function App() {
       </Routes>
     </Router>
   );
-}
+};
 
 export default App;
