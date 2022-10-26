@@ -9,7 +9,7 @@
 
 ## Live Demo 
 
-[Live demo](https://mohamed20163858.github.io/spacex-traveles-hub/)
+[Live demo](https://spacex-traveles-hub.netlify.app/)
 
 ## Getting Started
 You can download the page by clicking in the code green button and select Download ZIP or if you are a developer 
